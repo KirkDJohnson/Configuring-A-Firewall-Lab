@@ -2,7 +2,10 @@
 
 
 
-<h2>Description</h2> Text
+<h2>Description</h2> 
+ChatGPT
+In this lab, I created two Virtual Machines (VMs): one with the pfSense ISO image and one clean Windows 10 host. I created a NAT network and assigned both the Windows and pfSense VMs to it. However, I configured adapter one on the pfSense VM as a bridged connection to be on the same network as my host computer, and adapter two for the NAT network, corresponding to the WAN (Wide Area Network) and LAN (Local Area Network). I then installed and configured the pfSense VM, and accessed the admin web portal from the Windows 10 VM. This is where the majority of the lab was focused It's important to note that, because this is a lab environment, I had to allow RFC 1918 addresses (private IPs) into the WAN, since both my LAN and WAN interfaces used private IPs. This setup is not recommended in a production environment. I installed Suricata and Zeek packages on the firewall for enhanced logs and network visibility. Lastly, I configured a basic block list of insecure and common ports and protocols that attackers often leverage for initial access and persistence. To ensure the rules I configured were effective, I attempted to access a website using HTTP. The connection was blocked as expected, but when I disabled that firewall rule and revisited the site, it loaded correctly. This was an excellent hands-on lab for SOC analysts to learn how firewalls operate and to configure basic rules.
+
 <br />
 
 
@@ -56,11 +59,14 @@ With the base firewall, not installed and configured, I installed two packages o
 <br />
 <br />
 Next begun the process of making some basic firewall rules allowing traffic within the LAN and blocking many unsecure protocol and ports in the WAN such as Remote Desktop protocol, Telent, and Server Message Blcok SMB. The protocols I are either unsecure in that transfer data in plain text, or are common targets for attackers, unnecessarily increasing the attack surface. <br/>
+<img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/0f492cb0-5c32-4c75-a478-e688c2c3eb1a" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-To test the firewall rules, I tried to access the site <br/>
-<img src="" height="100%" width="100%" alt="pfSense Lab"/>
+To test the firewall rules, I tried to access the site a site using http. The connection was blocked and the site did not load. However, when I went back to my firewall rules and disabled that rulee, I was able to connect to the site confirming the rules to be working properly.<br/>
+<img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/c4d060e7-32d1-4d55-857b-e806084d6653" height="100%" width="100%" alt="pfSense Lab"/>
+<img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/9a7bf8c7-c3d5-4bbb-abb5-ab77396dfb99" height="100%" width="100%" alt="pfSense Lab"/>
+<img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/8d9e6bd3-47c5-497e-9b5e-32bac03a91fc" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
 Text<br/>
@@ -74,7 +80,7 @@ Text<br/>
 
 
 <h2>Thoughts</h2>
-txt
+This hands-on lab was highly insightful as it allowed for experimentation and self learning, unlike CTF walkthrough labs. I had some prior experience with networking principles from previous labs, particularly the Active Directory Splunk lab, so the initial assignment of IP subnetting was straightforward. Additionally, the pfSense installation went smoothly; I understood that both LAN and WAN needed to be private IPs, which made this lab somewhat different from a production environment. However, configuring the rules and packages was highly beneficial. Despite my basic knowledge of firewalls from working with Cisco labs, installing and configuring one on a Windows host and observing the real-time impact of blocking HTTP traffic was very enlightening. This lab provided valuable experience, which is primarily used by security engineers, but it is also important for SOC analysts to understand how firewalls operate.
  ```diff
 - text in red
 + text in green
