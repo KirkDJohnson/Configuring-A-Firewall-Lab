@@ -14,31 +14,26 @@ In this lab, I created two Virtual Machines (VMs): one with the pfSense ISO imag
 - <b>pfSense</b> 
 - <b>Windows CMD</b>
 - <b>Linux Terminal</b>
-- <b>Sever Manager</b>
-- <b>Active Directory Domain Services</b>
-- <b>Splunk Enterprise and Universal Forwarder</b>
-- </b>Splunk Search Processing Language (SPL)</b> 
-- <b>Crowbar and Atomic Red Team</b> 
-
 <h2>Environments Used </h2>
 
 - <b>Oracle Virtual Box for all Virtual Machines</b>
 - <b>Windows 10 </b>
-- <b>Linux Ubuntu Server </b>
+- <b>Linux Server </b>
 <h2>Lab Overview</h2>
 
-The first step for in this lab for this to work was to create a NAT Network so the virutal machines would be on the same network.<br/>
+The first step in this lab to ensure connectivity between VMs and my host machine by creating a NAT Network so the virutal machines would be on the same network.<br/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/c48c1de8-6faa-4056-a14f-cf20353bbadb" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-Next, with the pfSense VM (virtual machine), I configured the first adapted to be a bridged connection so it would recieve the an IP on the same netowork as my host computer and the second to act as the WAN (wide area network) and adapter two on for the LAN (local area network).<br/>
+Next, with the pfSense VM (virtual machine), I configured the first adapter to be a bridged connection so it would recieve an IP on the same network as my host computer and the second adapter with Nat Network for the respecticve LAN and WAN netowrks.
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/50021238-49ce-4768-bcb8-508c8cf3696c" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/bc159ec4-699e-4862-a2c0-0f532acce7ec" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-Once the the networking within Virtual Box was done, I isntalled and configured pfSense making to sure to attach the right adapter to the correct correct network. <br/>
+Once the network configuration within Virtual Box was done, I installed and configured pfSense making to sure to attach the right adapter to the correct correct network. <br/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/646041ca-8a09-4dc0-ba4e-d6960c64a867" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/affdc6b1-9782-43ba-a47f-48fb4966ccd3" height="100%" width="100%" alt="pfSense Lab"/>
+<img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/45af91ad-df8d-45b7-a00d-8b9105b007b9" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
 With a clean Windows 10 install, I configured it to also be on the NAT network with pfSense so it can access the admin page and test the rules.<br/>
@@ -46,7 +41,7 @@ With a clean Windows 10 install, I configured it to also be on the NAT network w
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/c125b776-bce3-4efb-adf4-db8c3e3fc689" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-Upon putting in the IP on my localhost, I was brought to the pfSense page where I begun condifguring the firewall. An important note: for this lab to work because I have a type 2 hypervisor, my LAN and WAN were both RFC 1918 ( private IP address ranges) which made me uncheck the box of blocking private networks from entering via WAN which is not something to do in a production environment, but necessary here.<br/>
+Upon putting in the IP on my default gateway which is the LAN of the fireall, I was brought to the pfSense page where I begun condifguring the firewall. An important note: for this lab to work because I have a type 2 hypervisor, my LAN and WAN were both RFC 1918 ( private IP address ranges) which made me uncheck the box of blocking private networks from entering via WAN which is not something to do in a production environment, but necessary here.<br/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/7d43c4c7-d701-4b19-ab72-ecba6a7578a2" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/f008d521-7db1-4b2f-8a66-0764f56068b1" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/326bd4ff-1535-4867-8d93-0bfcf9878a03" height="100%" width="100%" alt="pfSense Lab"/>
