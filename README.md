@@ -41,46 +41,30 @@ With a clean Windows 10 install, I configured it to also be on the NAT network w
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/c125b776-bce3-4efb-adf4-db8c3e3fc689" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-Upon putting in the IP on my default gateway which is the LAN of the fireall, I was brought to the pfSense page where I begun condifguring the firewall. An important note: for this lab to work because I have a type 2 hypervisor, my LAN and WAN were both RFC 1918 ( private IP address ranges) which made me uncheck the box of blocking private networks from entering via WAN which is not something to do in a production environment, but necessary here.<br/>
+Upon entering my default gateway IP into a web browser which is the LAN of the fireall, I was brought to the pfSense page where I begun configuring the firewall. An important note: for this lab to work because I have a type 2 hypervisor, my LAN and WAN were both RFC 1918 (private IP address ranges) which made me uncheck the box of blocking private networks from entering via WAN which is not something to do in a production environment, but necessary here.<br/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/7d43c4c7-d701-4b19-ab72-ecba6a7578a2" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/f008d521-7db1-4b2f-8a66-0764f56068b1" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/326bd4ff-1535-4867-8d93-0bfcf9878a03" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-With the base firewall, not installed and configured, I installed two packages on the firewall, Suricata which can perform as an Intrusion Detection/[Prevention system and Zeek as a lightweight traffic analyzer, <br/>
+With the firewall now installed and configured, I installed two packages on the firewall, Suricata which can perform as an Intrusion Detection/[Prevention system and Zeek as a lightweight traffic analyzer. <br/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/45ef1629-abed-4779-8f1b-c4c9102a427f" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/cba55531-8228-4151-83b4-2efada5dd3de" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/472a6cf5-b20b-445f-8849-403c10deb8d5" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-Next begun the process of making some basic firewall rules allowing traffic within the LAN and blocking many unsecure protocol and ports in the WAN such as Remote Desktop protocol, Telent, and Server Message Blcok SMB. The protocols I are either unsecure in that transfer data in plain text, or are common targets for attackers, unnecessarily increasing the attack surface. <br/>
+Next begun the process of making some basic firewall rules allowing traffic within the LAN and blocking many unsecure protocols and ports in the WAN such as Remote Desktop protocol, Telent, and Server Message Block SMB. The protocols either transfer data in plain text, or are common targets for attackers, unnecessarily increasing the attack surface. <br/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/0f492cb0-5c32-4c75-a478-e688c2c3eb1a" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-To test the firewall rules, I tried to access the site a site using http. The connection was blocked and the site did not load. However, when I went back to my firewall rules and disabled that rulee, I was able to connect to the site confirming the rules to be working properly.<br/>
+To test the firewall rules, I tried to access a website using http. The connection was blocked and the site did not load. However, when I went back to my firewall rules and disabled that rule, I was able to connect to the site confirming the rules to be working properly.<br/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/c4d060e7-32d1-4d55-857b-e806084d6653" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/9a7bf8c7-c3d5-4bbb-abb5-ab77396dfb99" height="100%" width="100%" alt="pfSense Lab"/>
 <img src="https://github.com/KirkDJohnson/Configuring-A-Firewall-Lab/assets/164972007/8d9e6bd3-47c5-497e-9b5e-32bac03a91fc" height="100%" width="100%" alt="pfSense Lab"/>
 <br />
 <br />
-Text<br/>
-<img src="" height="100%" width="100%" alt="pfSense Lab"/>
-<br />
-<br />
-Text<br/>
-<img src="" height="100%" width="100%" alt="pfSense Lab"/>
-<br />
-<br />
-
 
 <h2>Thoughts</h2>
-This hands-on lab was highly insightful as it allowed for experimentation and self learning, unlike CTF walkthrough labs. I had some prior experience with networking principles from previous labs, particularly the Active Directory Splunk lab, so the initial assignment of IP subnetting was straightforward. Additionally, the pfSense installation went smoothly; I understood that both LAN and WAN needed to be private IPs, which made this lab somewhat different from a production environment. However, configuring the rules and packages was highly beneficial. Despite my basic knowledge of firewalls from working with Cisco labs, installing and configuring one on a Windows host and observing the real-time impact of blocking HTTP traffic was very enlightening. This lab provided valuable experience, which is primarily used by security engineers, but it is also important for SOC analysts to understand how firewalls operate.
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+This hands-on lab was highly insightful as it allowed for experimentation and self learning, unlike CTF walkthrough labs. I had some prior experience with networking principles from previous labs, particularly the Active Directory Splunk lab, so the initial assignment of IP subnetting was straightforward. Additionally, the pfSense installation went smoothly; I understood that both LAN and WAN needed to be private IPs, which made this lab somewhat different from a production environment. However, configuring the rules and packages was highly beneficial. Despite my basic knowledge of firewalls from working with Cisco labs, installing and configuring one on a Windows host and observing the real-time impact of blocking HTTP traffic was very enlightening. This lab provided valuable experience, which is primarily used by security engineers, but it is also important for SOC analysts to understand how firewalls operate.<br />
+
